@@ -1,0 +1,32 @@
+CREATE TABLE Bikes (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    city_id INTEGER REFERENCES Cities
+);
+
+CREATE TABLE Cities (
+    id INTEGER PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE Stops (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    city_id INTEGER REFERENCES Cities
+);
+
+CREATE TABLE Trips (
+    id INTEGER PRIMARY KEY,
+    from_id INTEGER REFERENCES Stops,
+    to_id INTEGER REFERENCES Stops,
+    user_id INTEGER REFERENCES Users,
+    bike_id INTEGER REFERENCES Bikes,
+    day TEXT,
+    duration INTEGER, -- minuutit
+    distance INTEGER -- metrit
+);
+
+CREATE TABLE Users (
+    id INTEGER PRIMARY KEY,
+    name TEXT
+);
