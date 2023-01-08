@@ -1,0 +1,19 @@
+CREATE TABLE Videot (id INTEGER PRIMARY KEY, nimi TEXT, kuvaus TEXT, lahettaja TEXT, lahettaja_id int, julkaisupaiva DATETIME, katselukerrat INT, tekstitys text);
+
+CREATE TABLE Arviot (id INTEGER PRIMARY KEY, arvio INT, video_id INT REFERENCES Videot , kayttaja_id INT REFERENCES Kayttajat, videokommentti_id INT Videokommentit);
+
+CREATE TABLE Kayttajat (id INTEGER PRIMARY KEY, nimi text, kanava_id int REFERENCES Kanavat)
+
+CREATE TABLE Videokommentit(id INTEGER PRIMARY KEY, kommentti TEXT, kayttaja_id INT REFERENCES Kayttajat, video_id INT REFERENCES Videot, kommentti_id INT REFERENCES Videokommentit);
+
+CREATE TABLE Kanavat(id INTEGER PRIMARY KEY, soittolista_id int REFERENCES Soittolistat, video_id int REFERENCES Videot);
+
+CREATE TABLE Tilaajat(id INTEGER PRIMARY KEY, kanava_id int REFERENCES Kanavat, kayttaja_id int REFERENCES Kayttajat);
+
+CREATE TABLE Soittolista (id integer primary key, jarjestys int, video_id int REFERENCES Videot);
+
+Create table tekstitykset (id integer primary key, tekstitys_id int REFERENCES Videot, tekstitys text, aika time);
+
+CREATE TABLE Viestit (id integer primary key, kayttaja1_id int REFERENCES Kayttajat, kayttaja2_id int REFERENCES Kayttajat, viesti text, aika datetime, lahettaja_id int, vastaanottaja_id int)
+
+CREATE TABLE Estetyt (id integer primary key, kayttaja_id int REFERENCES Kayttajat, estettykayttaja_id int REFERENCES Kayttajat);

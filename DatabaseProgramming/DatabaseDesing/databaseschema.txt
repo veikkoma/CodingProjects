@@ -1,0 +1,105 @@
+Table Videot {
+  id int [pk]
+  nimi text
+  kuvaus text
+  lahettaja text
+  lahettaja_id int
+  julkaisupaiva datetime
+  katselukerrat int
+  tekstitys text
+}
+Table Arviot {
+  id int [pk]
+  arvio int
+  video_id int
+  kayttaja_id int
+  videokommentti_id int
+}
+Table Kayttajat {
+  id int [pk]
+  nimi text
+  kanava_id int
+  
+}
+Table videokommentit {
+  id int [pk]
+  kommentti text
+  kayttaja_id int
+  video_id int
+  kommentti_id int
+}
+Table Kanavat {
+  id int [pk]
+  soittolista_id int
+  video_id int
+}
+Table Soittolistat {
+  id int [pk]
+  jarjestys int
+  video_id int
+}
+Table Viestit{
+  id int [pk]
+  kayttaja1_id int
+  kayttaja2_id int
+  viesti text
+  aika datetime
+  lahettaja_id int
+  vastaanottaja_id int
+}
+Table Tekstitykset {
+  id int [pk]
+  tekstitys_id int
+  tekstitys text
+  aika time
+}
+
+Table Estetyt {
+  id int [pk]
+  kayttaja_id int
+  estettykayttaja_id int
+}
+Table Tilaajat {
+  id int [pk]
+  kanava_id int
+  kayttaja_id int
+}
+
+Ref: "videokommentit"."kayttaja_id" > "Kayttajat"."id"
+
+Ref: "Arviot"."video_id" > "Videot"."id"
+
+Ref: "Arviot"."kayttaja_id" > "Kayttajat"."id"
+
+Ref: "videokommentit"."kommentti_id" - "videokommentit"."id"
+
+Ref: "Arviot"."videokommentti_id" > "videokommentit"."id"
+
+Ref: "videokommentit"."video_id" > "Videot"."id"
+
+Ref: "Kanavat"."soittolista_id" < "Soittolistat"."id"
+
+Ref: "Kayttajat"."kanava_id" - "Kanavat"."id"
+
+
+
+Ref: "Viestit"."kayttaja1_id" < "Kayttajat"."id"
+
+Ref: "Kayttajat"."id" < "Viestit"."kayttaja2_id"
+
+
+
+Ref: "Tekstitykset"."tekstitys_id" > "Videot"."id"
+
+Ref: "Soittolistat"."video_id" > "Videot"."id"
+
+Ref: "Tilaajat"."kanava_id" > "Kanavat"."id"
+
+Ref: "Tilaajat"."kayttaja_id" > "Kayttajat"."id"
+
+Ref: "Kanavat"."video_id" < "Videot"."id"
+
+
+Ref: "Kayttajat"."id" < "Estetyt"."estettykayttaja_id"
+
+Ref: "Kayttajat"."id" > "Estetyt"."kayttaja_id"
