@@ -163,19 +163,6 @@ Toteutuksesi **tavoitteet** ovat:
 
 Testausta varten, **lisää** luokkiesi metodin `getStatus()` koodiin tietoa, jotka kertovat dataa toteutuksesi toimivuudesta. Esimerkiksi, kun olet toteuttanut hajautustaulun, palauta metodista merkkijono joka kertoo meille, kuinka monta törmäystä tapahtui elementtejä tauluun lisättäessä, ja kuinka monta askelta maksimissaan meni ennenkuin elementille löytyi vapaa paikka. Ja kun toteutat BST:n vastaavan metodin, voi tulostaa puun maksimisyvyyden jonne elementtejä käytiin lisäämässä. Jos käytät törmäysten hallintaan puussa esimerkiksi linkitettyjä listoja, tulosta tieto siitä, kuinka pitkä oli oli pisin linkitetty lista puussa kun törmäyksiä käsiteltiin. Tätä varten lisää sopivia jäsenmuuttujia toteutuksiisi joihin kirjaat näitä asioita, kun tietorakenteisiin lisätään elementtejä.
 
-Esimerkki siitä mitä koodisi pitäisi tulostaa on tässä:
-
-```console
-KeyValueArray reallocated 12 times, each time doubles the size
-KeyValueArray fill rate is 76,53%
-Hash table fill factor is 0,80
-Hash table had 39195 collisions when filling the hash table.
-Hash table had to probe 53 times in the worst case.
-Hash table had to reallocate 12 times.
-Current fill rate is 34,01%
-Tree has max depth of 38.
-Longest collision chain in a tree node is 1
-```
 Mikäli jotain tuossa tulostuksessa on epäselvää, katso kurssimateriaalia ja kysy opettajilta lisätietoja.
 
 Testit testiluokassa `PhoneBookTests` kutsuvat toteutuksesi `getStatus()` joten voit nähdä tulostuksesta tietoja siitä miten toteutuksesi toimii, ja arvioida esimerkiksi sitä onko esim. törmäyksiä liikaa suhteessa aineiston kokoon. Näin voit säätää esimerkiksi hajautustaulun kokoa (fill factor; kts. luennot) tai hajautusfunktiotasi ja katsoa tulisiko törmäyksiä vähemmän erilaisilla toteutuksilla.
@@ -254,35 +241,3 @@ Avaa `PerformanceTests` -testin tulostama tiedosto `compare.csv` taulukkolaskino
 
 Jos haluat tehdä valinnaisia tehtäviä, muista toimittaa nekin arvioitavaksi ennen kurssin deadlinea.
 
-## Extraa -- Test coverage eli testien kattavuus
-
-Tätä ekstra-asiaa ei tarvitse käydä läpi jos ei ole aikaa tai kiinnostusta.
-
-Harjoituksen `pom.xml` on konfiguroitu analysoimaan testien kattavuutta (code coverage). Jos testit eivät kata mahdollisimman isoa aluetta testattavasta koodista, testejä pitäisi parantaa. Näistä asioista puhutaan enemmän testaukseen keskittyvillä kursseilla.
-
-Näet koodikattavuuden VS Codesta jos:
-
-1. asennat VS Coden laajennuksen (extension) **Coverage Gutters**,
-2. suoritat kääntämisen ja testaamisen alla olevalla komennolla,
-3. katsot editorissa miltä testikattavuus näyttää (kuvaruutukopio alla)
-
-```console
-mvn jacoco:prepare-agent package jacoco:report
-```
-
-Lisäksi VS Coden ikkunan alareunassa olevassa sinisessä palkissa oleva "Watch" -komentoa klikkaamalla teksti vaihtuu sanaksi "Coverage". Kun nyt esillä on editori jossa Java -koodia joita testit testaavat, näet myös testikoodin kattavuuden.
-
-Kuvassa vihreällä on rivit joiden testikattavuus on hyvä, punaisella olevia rivejä ei ole suoritettu testien aikana. Esimerkiksi tässä luokan `KeyValueArray` metodin `add` riviä 56 jossa palautetaan false kun elementin lisääminen epäonnistuu, ei ole suoritettu. Toisaalta hyvä asia koska elementtien lisääminen on aina siis onnistunut. Olisihan se hyvä yrittää luoda tilanne jossa tämäkin epäonnistuu jotta voitaisiin testata myös tämän tilanteen suorituspolku. Mutta se ei kuulu tämän kurssin asiaan.
-
-![Code coverage view](code-coverage.png)
-
-
-## Kysymyksiä tai ongelmia?
-
-Osallistu kurssin luennoille, harjoituksiin ja online -tukifoorumeille.
-
-## Tietoja
-
-* Kurssimateriaalia kurssille Tietorakenteet ja algoritmit 2022.
-* Tietojenkäsittelytieteet, Oulun yliopisto.
-* (c) Antti Juustila, INTERACT Research Group.
