@@ -243,5 +243,3 @@ Avaa `PerformanceTests` -testin tulostama tiedosto `compare.csv` taulukkolaskino
 
 **Lisää** myös tämä raportti ja muut uudet tiedostot (kuvat) commitiin ja toimita sitten tehtävä git:n avulla etärepositoryysi arvointia varten. **Varmista kahdesti** ennen lopullista palautusta, että kaikki uudet tiedostot jotka ovat tarkistettavia töitä, on lisätty gitiin, commitoitu paikalliseen repoon ja työnnetty push:lla etärepositoryysi. Jos etärepostasi puuttuu tiedostoja tai ne eivät ole uusimmat versiot, työtäsi ei voi arvioida ja arvostella, tai arviointi perustuu väärään versioon.
 
-Jos haluat tehdä valinnaisia tehtäviä, muista toimittaa nekin arvioitavaksi ennen kurssin deadlinea.
-
