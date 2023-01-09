@@ -2,6 +2,10 @@
 
 Harjoituksessa toteutetaan **kaksi** nopeaa tietorakennetta (hajautustaulu ja binäärinen hakupuu) joihin luetaan tiedostoista puhelinluetteloita. Nämä molemmat toteuttavat `Dictionary` -rajapinnan. 
 
+Testidataa on niin paljon että se ei ole mukana tässä repositoryssä. **Hae** testidatatiedosto `towns.zip` tämän linkin kautta:
+
+https://drive.google.com/file/d/1WA6YDWN-5QGHnK7sAIfNT9cUA3wl6oSY/view?usp=sharing
+
 Useissa ohjelmointikielissä löytyy myös Dictionary niminen tietosäiliö (esimerkiksi [Swift](https://swiftdoc.org/v2.2/type/dictionary/)), toisissa ohjelmointikielissä sitä kutsutaan nimellä "map" (esimerkiksi [Java](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)).
 
 > Huomaa että binäärinen haku*puu* (Binary Search Tree, BST) on *tietorakenne* ja siihen liittyviä algoritmeja. Se *ei ole* sama asia kuin puolitushaku eli binary *search*. Joten älä toteuta tässä harjoituksessa puolitushakua!
