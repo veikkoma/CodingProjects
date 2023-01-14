@@ -13,28 +13,6 @@ public class DailyTasks {
    private Timer timer = null;
    private static final int TASK_DELAY_IN_SECONDS = 1 * 1000;
 
-   private DailyTasks() {
-   }
-      public static void main(String [] args) {
-      LinkedListImplementation<String> list = new LinkedListImplementation<>();
-      list.add("A");
-      list.add("B");
-      list.add("C");
-      list.add("D");
-      System.out.println(list.toString());
-      list.remove("C");
-      System.out.println(list.toString());
-   }
-
-
-   /**
-    * Execute from the command line:  <code>java -jar target/04-queue-1.0-SNAPSHOT-jar-with-dependencies.jar</code>
-    * @param args Not used.
-    */
-   public static void main(String[] args) {
-      DailyTasks tasks = new DailyTasks();
-      tasks.run();
-   }
 
    /**
     *
